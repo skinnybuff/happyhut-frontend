@@ -11,7 +11,7 @@ const signUpFailure = function (data) {
 }
 
 const signInSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   store.user = data.user
 }
 

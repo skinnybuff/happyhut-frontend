@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store')
-// const displayAllChores = require('../templates/show-file.handlebars')
+const displayAllChores = require('../templates/show-all-chores.handlebars')
 
 // const formatDateUS = function (file, idToChange) {
 //   const createdDate = new Date(file.createdAt)
@@ -27,9 +27,8 @@ const getAllChoresSuccess = function (data) {
   // save all files from the request to the local store
   store.chores = data.chores
   console.log('getAllFilesSuccess data is:', data)
-  $('show-chores').text(data)
-  // const indexFilesHTML = indexFiles({ files: data.files })
-  // $('#files-display-container').html(indexFilesHTML)
+  const allChoresHTML = displayAllChores({ chores: data.chores })
+  $('#show-chores').html(allChoresHTML)
 }
 
 const getAllChoresFailure = function (data) {

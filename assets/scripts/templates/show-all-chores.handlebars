@@ -1,0 +1,9 @@
+{{#each chores as |chore|}}
+
+<h2>{{chore.chore_name}}</h2>
+    <ul>
+      <li> interval: {{chore.chore_interval}} </li>
+      <li> last done on: {{chore.last_done}} </li>
+      <li> over due: {{chore.over_due}} </li>
+    </ul>
+{{/each}}

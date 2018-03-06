@@ -21,7 +21,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   const data = getFormFields(this)
-  console.log('sign in data', data)
+  // console.log('sign in data', data)
   event.preventDefault()
 
   authAPI.signIn(data)
