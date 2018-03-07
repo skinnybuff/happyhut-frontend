@@ -1,6 +1,8 @@
 'use strict'
 
 const store = require('../store')
+const displayUserAuth = require('../templates/show-user-auth.handlebars')
+const displayLoginAuth = require('../templates/show-login-auth.handlebars')
 
 const eraseHUD = function (time) {
   window.setTimeout(() => {
@@ -24,8 +26,11 @@ const signInSuccess = function (data) {
   // console.log(data)
   store.user = data.user
   $('#app-hud').text('You have signed in.')
-  eraseHUD(2000)
-  return data
+  eraseHUD(4000)
+  const userAdminHTML = displayUserAuth()
+  $('aside').append(userAdminHTML)
+  $('#sign-up').remove()
+  $('#sign-in').remove()
 }
 
 const signInFailure = function (data) {
@@ -37,7 +42,7 @@ const signInFailure = function (data) {
 const changePasswordSuccess = function (data) {
   // console.log('Changed password!')
   $('#app-hud').text('You password was changed.')
-  eraseHUD(2000)
+  eraseHUD(4000)
 }
 
 const changePasswordFailure = function (data) {
@@ -51,7 +56,11 @@ const signOutSuccess = function () {
   store.user = null
   store.chores = null
   $('#app-hud').text('You have Signed Out.')
-  eraseHUD(2000)
+  eraseHUD(4000)
+  $('aside').empty()
+  $('main').empty()
+  const userLoginHTML = displayLoginAuth()
+  $('aside').append(userLoginHTML)
 }
 
 const signOutFailure = function () {

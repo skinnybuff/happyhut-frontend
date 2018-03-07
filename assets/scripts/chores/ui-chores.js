@@ -12,7 +12,7 @@ const messageHUD = function (txt, time) {
 
 const createChoreSuccess = function (data) {
   store.chores.push(data.chore)
-  messageHUD('New Chore Created', 2000)
+  messageHUD('New Chore Created', 4000)
 }
 
 const createChoreFailure = function () {
@@ -35,7 +35,7 @@ const getAllChoresFailure = function (data) {
 
 const updateChoreSuccess = function (data) {
   // console.log('File updated!! Here\'s what we got:', data)
-  messageHUD('Your Chore was Updated', 2000)
+  messageHUD('Your Chore was Updated', 4000)
 }
 
 const updateChoreFailure = function (data) {

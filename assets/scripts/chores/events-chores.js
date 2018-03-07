@@ -16,7 +16,7 @@ const createChore = function (event) {
     .then(choresAPI.getAllChores)
     .then(choresUI.getAllChoresSuccess)
     .catch(choresUI.updateChoreFailure)
-  $('#create-chore').find('input:password, select, textarea').val('')
+  $('#create-chore').find('input, select, textarea').val('')
 }
 
 const changeChore = function (event) {
@@ -28,7 +28,7 @@ const changeChore = function (event) {
     .then(choresAPI.getAllChores)
     .then(choresUI.getAllChoresSuccess)
     .catch(choresUI.updateChoreFailure)
-  $('#update-chore').find('input:password, select, textarea').val('')
+  $('#update-chore').find('input, select, textarea').val('')
 }
 
 const deleteChore = function () {
@@ -70,8 +70,8 @@ const finishChore = function () {
 }
 
 const addHandlers = function () {
-  $('#create-chore').on('submit', createChore)
-  $('#update-chore').on('submit', changeChore)
+  $('aside').on('submit', '#create-chore', createChore)
+  $('aside').on('submit', '#update-chore', changeChore)
   $('#show-chores').on('click', '.delete-chore', deleteChore)
   $('#show-chores').on('click', '.finish-chore', finishChore)
 }

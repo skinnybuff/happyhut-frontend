@@ -39,7 +39,7 @@ const changePassword = function (event) {
   authAPI.changePassword(data)
     .then(authUI.changePasswordSuccess)
     .catch(authUI.changePasswordFailure)
-  $('#change-password').find('input:password, select, textarea').val('')
+  $('#change-password').find('input:password').val('')
 }
 
 const signOut = function (event) {
@@ -50,10 +50,10 @@ const signOut = function (event) {
 }
 
 const addHandlers = function () {
-  $('#sign-up').on('submit', onSignUp)
-  $('#sign-in').on('submit', onSignIn)
-  $('#change-password').on('submit', changePassword)
-  $('#sign-out').on('submit', signOut)
+  $('aside').on('submit', '#sign-up', onSignUp)
+  $('aside').on('submit', '#sign-in', onSignIn)
+  $('aside').on('submit', '#change-password', changePassword)
+  $('aside').on('submit', '#sign-out', signOut)
 }
 
 module.exports = {
