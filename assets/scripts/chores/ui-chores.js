@@ -26,7 +26,7 @@ const createChoreFailure = function () {
 const getAllChoresSuccess = function (data) {
   // save all files from the request to the local store
   store.chores = data.chores
-  console.log('getAllFilesSuccess data is:', data)
+  // console.log('getAllFilesSuccess data is:', data)
   const allChoresHTML = displayAllChores({ chores: data.chores })
   $('#show-chores').html(allChoresHTML)
 }
@@ -43,11 +43,11 @@ const updateChoreFailure = function (data) {
   console.log('updateChoreFailure')
 }
 
-const deleteChoreSuccess = function (data) {
+const destroyChoreSuccess = function (data) {
   console.log('File was successfully deleted.')
 }
 
-const deleteChoreFailure = function (data) {
+const destroyChoreFailure = function (data) {
   console.log('deleteChoreFailure')
 }
 
@@ -58,6 +58,6 @@ module.exports = {
   getAllChoresFailure,
   updateChoreSuccess,
   updateChoreFailure,
-  deleteChoreSuccess,
-  deleteChoreFailure
+  destroyChoreSuccess,
+  destroyChoreFailure
 }

@@ -13,10 +13,12 @@ const signUpFailure = function (data) {
 const signInSuccess = function (data) {
   // console.log(data)
   store.user = data.user
+  return data
 }
 
 const signInFailure = function (data) {
-  console.error('sign in error')
+  console.log('error')
+  return data
 }
 
 const changePasswordSuccess = function (data) {
@@ -33,7 +35,8 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function () {
-  console.error('sign out error')
+  console.log('error')
+  return 'Error'
 }
 
 module.exports = {

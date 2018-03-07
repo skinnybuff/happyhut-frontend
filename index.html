@@ -14,9 +14,9 @@
     <body class="container-fluid">
       <nav>
         <h1> Happy Hut </h1>
-
+        <div id="app-hud"></div>
         </nav>
-        <div>
+        <aside>
           <form id="sign-up" class="logged-out">
             <fieldset>
               <legend>Create an Account</legend>
@@ -52,7 +52,7 @@
           <form id="create-chore">
             <fieldset>
               <legend>
-                <h3>Add a Chore</h3>
+                Add a Chore
               </legend>
               <input type="text" name="chore[chore_name]" placeholder="Name"/><br/>
               <input type="number" name="chore[chore_interval]" placeholder="Interval"/><br/>
@@ -61,14 +61,20 @@
               <button type="submit">Add</button>
             </fieldset>
           </form>
-        </div>
-        <div id="show-chores"></div>
+          <form id="update-chore">
+            <fieldset>
+              <legend>
+                Update a Chore
+              </legend>
+              <input type="text" name="chore[id]" placeholder="Chore ID"/><br/>
+              <input type="text" name="chore[chore_name]" placeholder="Name"/><br/>
+              <input type="number" name="chore[chore_interval]" placeholder="Interval"/><br/>
+              <input type="date" name="chore[last_done]" placeholder="Last Done"/><br/>
+              <input type="text" name="chore[over_due]" placeholder="Over due"/><br/>
+              <button type="submit">Update</button>
+            </fieldset>
+          </form>
+        </aside>
+        <main id="show-chores"></main>
       </body>
 </html>
-
-
-<!-- "id": 1,
-"chore_name": "Change Smoke Detector Batteries",
-"chore_interval": 365,
-"last_done": null,
-"over_due": false -->

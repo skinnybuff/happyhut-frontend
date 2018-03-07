@@ -21,9 +21,9 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   const data = getFormFields(this)
-  // console.log('sign in data', data)
   event.preventDefault()
 
+  // console.log('sign in data', data)
   authAPI.signIn(data)
     .then(authUI.signInSuccess)
     .then(choresAPI.getAllChores)
