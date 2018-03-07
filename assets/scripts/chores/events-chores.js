@@ -1,6 +1,8 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
+const store = require('../store')
+const moment = require('moment')
 
 const choresAPI = require('../chores/api-chores')
 const choresUI = require('../chores/ui-chores')
@@ -33,21 +35,45 @@ const deleteChore = function () {
   const choreID = $(this).attr('data-id')
 
   choresAPI.destroyChore(choreID)
-    .then(choresAPI.destroyChoreSuccess)
+    .then(choresUI.destroyChoreSuccess)
     .then(choresAPI.getAllChores)
     .then(choresUI.getAllChoresSuccess)
-    .catch(choresAPI.destroyChoreFailure)
+    .catch(choresUI.destroyChoreFailure)
 }
 
 const finishChore = function () {
+  const choreID = $(this).attr('data-id')
+  // choreID val is coerced in to an INT with precceding "+"
+  const choreObject = store.chores.find(item => item.id === +choreID)
 
+  const currentDate = moment()
+  const alteredDate = moment().add(choreObject.chore_interval, 'days')
+  console.log('current date ::', currentDate)
+  console.log('altered date ::', alteredDate)
+  // console.log('clicked chore id ::', choreID)
+  // console.log('all stored chores ::', store.chores)
+  console.log('clicked chore object::', choreObject)
+
+  const chore = choreObject
+  chore.id = +choreID
+  chore.last_done = currentDate.format('YYYY-MM-DD')
+  chore.over_due = false
+
+  const data = {chore}
+  console.log('NEW objechorect ::', data)
+
+  choresAPI.updateChore(data)
+    .then(choresUI.updateChoreSuccess(alteredDate))
+    .then(choresAPI.getAllChores)
+    .then(choresUI.getAllChoresSuccess)
+    .catch(choresUI.destroyChoreFailure)
 }
 
 const addHandlers = function () {
   $('#create-chore').on('submit', createChore)
   $('#update-chore').on('submit', changeChore)
   $('#show-chores').on('click', '.delete-chore', deleteChore)
-  $('#show-chores').on('click', '.finish-chore', () => { console.log('finish button clicked') })
+  $('#show-chores').on('click', '.finish-chore', finishChore)
 }
 
 module.exports = {

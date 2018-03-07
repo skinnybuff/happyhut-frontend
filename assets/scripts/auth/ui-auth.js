@@ -13,6 +13,7 @@ const signUpFailure = function (data) {
 const signInSuccess = function (data) {
   // console.log(data)
   store.user = data.user
+  $('#app-hud').text('You have signed in.')
   return data
 }
 

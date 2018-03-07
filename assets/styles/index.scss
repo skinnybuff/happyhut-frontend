@@ -1,7 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-app-hud {
+#app-hud {
   height: 30px;
 }
 
@@ -11,7 +11,14 @@ aside {
 }
 
 form {
-  margin: 30px;
+  margin: 25px;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: 600;
+  margin: 0 auto;
+  text-align: center;
 }
 
 main {
