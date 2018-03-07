@@ -3,24 +3,21 @@
 const store = require('../store')
 const displayAllChores = require('../templates/show-all-chores.handlebars')
 
-// const formatDateUS = function (file, idToChange) {
-//   const createdDate = new Date(file.createdAt)
-//   const formatCreateDate = createdDate.toLocaleString('en-US')
-//   // console.log('formatCreateDate is:', formatCreateDate)
-//   $(idToChange + file.id).text(formatCreateDate)
-// }
+const messageHUD = function (txt, time) {
+  $('#app-hud').text(`${txt}`)
+  window.setTimeout(() => {
+    $('#app-hud').text('')
+  }, time)
+}
 
 const createChoreSuccess = function (data) {
   store.chores.push(data.chore)
-  // const singleFileHTML = showFile({ file: data.file })
-  // $('#files-display-container').prepend(singleFileHTML)
-  // formatDateUS(data.file, '#created-time-')
-  // }
-  // $('').val('')
+  messageHUD('New Chore Created', 2000)
 }
 
 const createChoreFailure = function () {
-  console.log('createChoreFailure')
+  // console.log('createChoreFailure')
+  messageHUD('Could not create a chore', 6000)
 }
 
 const getAllChoresSuccess = function (data) {
@@ -32,23 +29,28 @@ const getAllChoresSuccess = function (data) {
 }
 
 const getAllChoresFailure = function (data) {
-  console.log('getAllChoresFailure')
+  // console.log('getAllChoresFailure')
+  messageHUD('Getting all the Chores Failed', 6000)
 }
 
 const updateChoreSuccess = function (data) {
-  console.log('File updated!! Here\'s what we got:', data)
+  // console.log('File updated!! Here\'s what we got:', data)
+  messageHUD('Your Chore was Updated', 2000)
 }
 
 const updateChoreFailure = function (data) {
-  console.log('updateChoreFailure')
+  // console.log('updateChoreFailure')
+  messageHUD('Update Chore Failed', 4000)
 }
 
 const destroyChoreSuccess = function (data) {
-  console.log('File was successfully deleted.')
+  // console.log('File was successfully deleted.')
+  messageHUD('Chore Deleted', 4000)
 }
 
 const destroyChoreFailure = function (data) {
-  console.log('deleteChoreFailure')
+  // console.log('deleteChoreFailure')
+  messageHUD('Chore Delete Failed', 4000)
 }
 
 module.exports = {
