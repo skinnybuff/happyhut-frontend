@@ -7,6 +7,8 @@ and when it should be done next
 the frontend is host on [github pages](https://skinnybuff.github.io/happyhut-frontend/) | and the repo on [github](https://github.com/skinnybuff/happyhut-frontend)
 the back end api is hosted on [heroku](https://happy-hut.herokuapp.com/) | and the repo on [github](https://github.com/skinnybuff/happyhut-backend)
 
+![V1 Screen Shot](https://github.com/skinnybuff/happyhut-frontend/blob/master/img/Happy-Hut-Screenshot.png?raw=true)
+
 ### Technologies Used
 - HTML
 - SCSS
