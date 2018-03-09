@@ -1,6 +1,6 @@
 {{#each chores as |chore|}}
 
-<h2> {{chore.chore_name}}
+<h1> {{chore.chore_name}}
 
   <div class="btn-group btn-group-sm" role="group" >
   <button class="btn btn-default btn-sm delete-chore" type="button" data-id={{chore.id}}>
@@ -10,9 +10,9 @@
     done
   </button>
 </div>
-</h2>
+</h1>
     <p>
-      chore id: {{chore.id}}
+      chore id: {{chore.id}} <br />
       interval: {{chore.chore_interval}} <br />
       last done on: {{chore.last_done}} <br />
       over due: {{chore.over_due}} <br />
