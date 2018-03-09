@@ -12,7 +12,7 @@ $sourapple: #0bc44c;
 $kahki: #bec5ad;
 $sand: #a4b494;
 $azure: #0e3a53;
-
+$watermelon: #fc20a4;
 
 #app-hud {
   font-weight: 400;
@@ -91,8 +91,12 @@ nav {
   }
 }
 
+.over-due {
+  border: 1px solid $watermelon;
+}
+
 p {
-    font-size: 22px;
+    font-size: 26px;
 }
 
 #show-chores {

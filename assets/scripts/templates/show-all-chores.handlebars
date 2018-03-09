@@ -1,20 +1,22 @@
 {{#each chores as |chore|}}
 
-<h1> {{chore.chore_name}}
-
-  <div class="btn-group btn-group-sm" role="group" >
-  <button class="btn btn-default btn-sm delete-chore" type="button" data-id={{chore.id}}>
-    delete
-  </button>
-  <button class="btn btn-default btn-sm finish-chore" type="button" data-id={{chore.id}}>
-    done
-  </button>
+<div id="{{chore.id}}">
+  <h1> {{chore.chore_name}}
+    <div class="btn-group btn-group-sm" role="group" >
+      <button class="btn btn-default btn-sm delete-chore" type="button" data-id={{chore.id}}>
+        delete
+      </button>
+      <button class="btn btn-default btn-sm finish-chore" type="button" data-id={{chore.id}}>
+        done
+      </button>
+    </div>
+  </h1>
+  <p>
+    chore id: {{chore.id}} <br />
+    interval: {{chore.chore_interval}} <br />
+    last done on: {{chore.last_done}} <br />
+    over due: {{chore.over_due}} <br />
+  </p>
 </div>
-</h1>
-    <p>
-      chore id: {{chore.id}} <br />
-      interval: {{chore.chore_interval}} <br />
-      last done on: {{chore.last_done}} <br />
-      over due: {{chore.over_due}} <br />
-    </p>
+
 {{/each}}

@@ -3,6 +3,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const store = require('../store')
 const moment = require('moment')
+const appLogic = require('../app-logic')
 
 const choresAPI = require('../chores/api-chores')
 const choresUI = require('../chores/ui-chores')
@@ -15,6 +16,7 @@ const createChore = function (event) {
     .then(choresUI.createChoreSuccess)
     .then(choresAPI.getAllChores)
     .then(choresUI.getAllChoresSuccess)
+    .then(appLogic.checkOverDue)
     .catch(choresUI.updateChoreFailure)
   $('#create-chore').find('input, select, textarea').val('')
 }
@@ -27,6 +29,7 @@ const changeChore = function (event) {
     .then(choresUI.updateChoreSuccess)
     .then(choresAPI.getAllChores)
     .then(choresUI.getAllChoresSuccess)
+    .then(appLogic.checkOverDue)
     .catch(choresUI.updateChoreFailure)
   $('#update-chore').find('input, select, textarea').val('')
 }
@@ -66,6 +69,7 @@ const finishChore = function () {
     .then(choresUI.updateChoreSuccess(alteredDate))
     .then(choresAPI.getAllChores)
     .then(choresUI.getAllChoresSuccess)
+    .then(appLogic.checkOverDue)
     .catch(choresUI.destroyChoreFailure)
 }
 
