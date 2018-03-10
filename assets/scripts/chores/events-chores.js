@@ -51,11 +51,11 @@ const finishChore = function () {
 
   const currentDate = moment()
   const alteredDate = moment().add(choreObject.chore_interval, 'days')
-  console.log('current date ::', currentDate)
-  console.log('altered date ::', alteredDate)
+  // console.log('current date ::', currentDate)
+  // console.log('altered date ::', alteredDate)
   // console.log('clicked chore id ::', choreID)
   // console.log('all stored chores ::', store.chores)
-  console.log('clicked chore object::', choreObject)
+  // console.log('clicked chore object::', choreObject)
 
   const chore = choreObject
   chore.id = +choreID
@@ -63,7 +63,7 @@ const finishChore = function () {
   chore.over_due = false
 
   const data = {chore}
-  console.log('NEW objechorect ::', data)
+  // console.log('NEW objechorect ::', data)
 
   choresAPI.updateChore(data)
     .then(choresUI.updateChoreSuccess(alteredDate))
@@ -76,6 +76,9 @@ const finishChore = function () {
 const addHandlers = function () {
   $('aside').on('submit', '#create-chore', createChore)
   $('aside').on('submit', '#update-chore', changeChore)
+  $('#show-chores').on('click', '.update-chore', () => {
+    console.log('template update')
+  })
   $('#show-chores').on('click', '.delete-chore', deleteChore)
   $('#show-chores').on('click', '.finish-chore', finishChore)
 }
