@@ -14,12 +14,22 @@
       </button>
     </div>
   </h1>
-  <p>
+  <p id="update-static">
     chore id: {{chore.id}} <br />
     interval: {{chore.chore_interval}} <br />
     last done on: {{chore.last_done}} <br />
     over due: {{chore.over_due}} <br />
   </p>
+  <form id="update-inplace" class="updating-hide">
+    <fieldset>
+      <input type="hidden" name="chore[chore_name]" value="{{chore.chore_name}}"/><br/>
+      chore id: <input type="text" name="chore[id]" value="{{chore.id}}"/><br/>
+      interval: <input type="number" name="chore[chore_interval]" value="{{chore.chore_interval}}"/><br/>
+      last done on: <input type="date" name="chore[last_done]" value="{{chore.last_done}}"/><br/>
+      over due: <input type="text" name="chore[over_due]" value="{{chore.over_due}}"/><br/>
+      <button type="submit">Submit</button>
+    </fieldset>
+  </form>
 </div>
 
 {{/each}}
