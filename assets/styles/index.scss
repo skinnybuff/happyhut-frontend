@@ -103,14 +103,31 @@ p {
   margin-left: 30px;
 }
 
-#update-inplace {
+.update-chore-form {
   font-size: 26px;
-
+  left: -25px;
+  position: relative;
+  top: -12px;
   input {
+    border: 0px;
+    border-bottom: 1px solid $sand;
     font-size: 18px;
     padding: 0px 8px;
   }
   button {
-    width: 50%;
+    background-color: $kahki;
+    width: 53%;
+
+    &:hover{
+      background-color: $sourapple;
+    }
   }
+}
+
+.unselectable {
+  user-select: none;
+}
+
+.visible {
+  display: none;
 }

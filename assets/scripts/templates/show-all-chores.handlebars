@@ -14,20 +14,26 @@
       </button>
     </div>
   </h1>
-  <p id="update-static">
+  <p id="update-static-{{chore.id}}">
     chore id: {{chore.id}} <br />
     interval: {{chore.chore_interval}} <br />
     last done on: {{chore.last_done}} <br />
     over due: {{chore.over_due}} <br />
   </p>
-  <form id="update-inplace" class="updating-hide">
+  <form id="update-inplace-{{chore.id}}" class="visible update-chore-form">
     <fieldset>
-      <input type="hidden" name="chore[chore_name]" value="{{chore.chore_name}}"/><br/>
-      chore id: <input type="text" name="chore[id]" value="{{chore.id}}"/><br/>
+      chore id: <input class="unselectable" type="text" name="chore[id]" value="{{chore.id}}" readonly/><br/>
       interval: <input type="number" name="chore[chore_interval]" value="{{chore.chore_interval}}"/><br/>
       last done on: <input type="date" name="chore[last_done]" value="{{chore.last_done}}"/><br/>
       over due: <input type="text" name="chore[over_due]" value="{{chore.over_due}}"/><br/>
-      <button type="submit">Submit</button>
+      <input type="submit"/>
+      <!-- <input type="radio" id="contactChoice1"
+       name="contact" value="email">
+      <label for="contactChoice1">Email</label>
+
+      <input type="radio" id="contactChoice2"
+       name="contact" value="phone">
+      <label for="contactChoice2">Phone</label> -->
     </fieldset>
   </form>
 </div>

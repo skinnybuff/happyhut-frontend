@@ -6,12 +6,12 @@ const authEvents = require('./auth/events-auth')
 const choresEvents = require('./chores/events-chores')
 const displayLoginAuth = require('./templates/show-login-auth.handlebars')
 
-
 $(() => {
   setAPIOrigin(location, config)
+  // in it all click handlers
   authEvents.addHandlers()
   choresEvents.addHandlers()
-
+  // load templates for a user not logged in
   const userLoginHTML = displayLoginAuth()
   $('aside').append(userLoginHTML)
 })

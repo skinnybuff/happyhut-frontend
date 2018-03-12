@@ -23,12 +23,13 @@ const createChore = function (event) {
 
 const changeChore = function (event) {
   const data = getFormFields(this)
-  // console.log(data)
+  // console.log('data ::', data)
   event.preventDefault()
   choresAPI.updateChore(data)
     .then(choresUI.updateChoreSuccess)
     .then(choresAPI.getAllChores)
     .then(choresUI.getAllChoresSuccess)
+    .then(choresUI.renderTemplate('#show-chores', store.chores))
     .then(appLogic.checkOverDue)
     .catch(choresUI.updateChoreFailure)
   $('#update-chore').find('input, select, textarea').val('')
@@ -75,10 +76,9 @@ const finishChore = function () {
 
 const addHandlers = function () {
   $('aside').on('submit', '#create-chore', createChore)
-  $('aside').on('submit', '#update-chore', changeChore)
-  $('#show-chores').on('click', '.update-chore', () => {
-    console.log('template update')
-  })
+  // $('aside').on('submit', '#update-chore', changeChore)
+  $('#show-chores').on('click', '.update-chore', choresUI.toogleVisibilty)
+  $('#show-chores').on('submit', '.update-chore-form', changeChore)
   $('#show-chores').on('click', '.delete-chore', deleteChore)
   $('#show-chores').on('click', '.finish-chore', finishChore)
 }
